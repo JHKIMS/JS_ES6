@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This정리</title>
+</head>
+<body>
+    <script>
+        /* 
+        this는 나를 담고 있는 Object를 뜻한다.
+        this
+        1 그냥 쓰거나 일반 함수 안에서 쓰면 this-> window
+        console.log(this)
+        function 함수(){
+            console.log(this)
+        }
+
+        2 Object내 함수안에서 this를 쓰면 this-> 그 함수를 가진 Object
+            let object = { 
+                            data: 'KIM',
+                            함수: function(){
+                                console.log(this);
+                            }
+                        } 여기서의 this는 object를 가리킨다.
+            let object2 = {
+                data:{
+                    함수: function(){
+                        console.log(this);
+                    }
+                }
+            } 여기서의 this는 data를 가리킨다.
+            
+            let object3 = {
+                data:{
+                    함수: () => {  //arrow function
+                        console.log(this);
+                    }
+                }
+            } 여기서의 this는 window를 가리킨다.
+         */
+
+         /* this의 3번째, 4번째
+         3. */
+    </script>
+</body>
+</html>
