@@ -7,6 +7,7 @@
     <title>This정리</title>
   </head>
   <body>
+    <button id="ex">This버튼</button>
     <script>
       /* this는 나를 담고 있는 Object를 뜻한다.
         this
@@ -44,8 +45,20 @@
       };
       // 여기서의 this는 window를 가리킨다.
 
-      //  3. this의 3번째
-      function machine() {}
+      //  3. this의 3번째(Constructor)
+      function machine() {
+        this.name='Kim'
+        // this : 기계로부터 새로 생성되는 오브젝트를 뜻한다.
+      }
+      let machingObj = new machine();
+
+    //   4. this 4번째(EventListener에서)
+      document.getElementById('ex').addEventListener('click',function(e){
+        this;
+        console.log(e.currentTarget, this);
+        // this : e.currentTarget을 의미한다.(addEvenetListener안에서)
+      })
+    //   arrow function에서의 this는 window
     </script>
   </body>
 </html>

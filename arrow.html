@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="ex">3번문제-버튼</button>
+    <script>
+        // ArrowFunction
+        let func = () => {
+
+        }
+
+        let ex = a => console.log(a);
+
+        func();
+        ex("number");
+
+        // 1번
+        let person = {
+            name: 'Son',
+            sayHi : function(){
+                console.log("Hi Person " + this.name );
+            }
+        }
+        person.sayHi();
+
+        // 2번
+        let dummy = {
+            data: [1, 2, 3, 4, 5]
+        }
+        dummy.plus = function(){
+            let sum=0;
+            this.data.forEach(function(a){
+                sum = sum+a;
+            });
+            console.log(sum)
+        }
+        dummy.plus();
+
+        // 3번
+        document.getElementById('ex').addEventListener('click', function(){
+            setTimeout(()=>{console.log(this.innerHTML)}, 1000);
+            
+        })
+    </script>
+</body>
+</html>
