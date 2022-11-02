@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpreadOperator</title>
+</head>
+<body>
+    <script>
+        // Speread Operator는 ... 부분은 항상 {}, [], () 안에서 사용가능.
+
+        let arr = ['hi', 'world'];
+        console.log(arr,...arr); // 대괄호 제거
+        let string = 'abcdefg'
+        console.log(...string); // 글자를 하나하나 나눠준다.
+        
+        let a = [1, 2, 3];
+        let b = [4, 5];
+        let c = [...a, ...b];
+
+        // arr을 복사하는 경우
+        let d = [...a];
+
+        // Spread Operator는 Array를 합칠 때 많이 사용한다.
+
+
+        //object합치기
+        let o1 = {a : 1, b : 2};
+        let o2 = { ...o1, c : 3};
+        let copyO1 = {...o1};
+        // 카피하다가 중복 값이 발생하면 -> 가장 뒤에 온 것이 저장된다.
+        
+        console.log(o1);
+        console.log(o2);
+
+
+        //함수에서 파라미터 넣는 경우
+        let plusArr = [10, 20, 30];
+        function plus(a, b, c){
+            console.log(a+b+c);
+        }
+        
+        // apply, call함수
+        let person = {
+            인사: function(){
+                console.log('안녕');
+            }
+        }
+
+        let person2 = {
+            name: 'Kim'
+        }
+
+        person.인사.apply(person2);
+        //파라미터를 넣는 경우
+        person.인사.apply(person2, [1,2]);
+        person.인사.call(person2, 1,2);
+        // call과 apply의 차이는 파라미터 받는 방식의 차이뿐, 기능은 동일
+
+    </script>
+</body>
+</html>
