@@ -1,22 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ReferenceType</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        그냥 문자와 숫자는 Primitive data type
-        : 변수에 값이 그대로 저장됨.
+            /*
+                  그냥 문자와 숫자는 Primitive data type
+                  : 변수에 값이 그대로 저장됨.
 
-        Array, Object는 변수에 값이 저장 안됨
-        : 변수에 reference가 저장됨.
-        --> Array, Object는 함부로 복사해서 쓰고 하면 안된다.
+                  Array, Object는 변수에 값이 저장 안됨
+                  : 변수에 reference가 저장됨.
+                  --> Array, Object는 함부로 복사해서 쓰고 하면 안된다.
 
-        Object복사해서 쓰는법
-        
+                  Object복사해서 쓰는법
+                  : Spread_Operator를 사용한다.
+              */
+
+            let dum = { name: "김" };
+
+            function change(obj) {
+              // console.log(obj)
+              obj = { name: "park" };
+              // console.log(obj);
+            }
+            function change2(obj) {
+              // console.log(obj)
+              obj.name = "something";
+              // console.log(obj);
+            }
+            change(dum);
+            console.log(dum); // {name : "김"}
+            change2(dum);
+            console.log(dum); // {name : "something"}
+
+
+            /* 자바스크립트가 파라미터를 만들고 사용할 때는
+                다음과 같이 사용한다고 보면 된다.
+                change(let obj = dum) 실제로 이런 문법이 있는 것은 아니다.
+                function(let obj = dum){
+                  obj = { name : 'park' }
+                  ==> 결국 그냥 obj를 복사한셈이다.
+                  ==> 실질적으로 변수 dum을 건드리고 있지 않다.
+            } */
     </script>
-</body>
+  </body>
 </html>
