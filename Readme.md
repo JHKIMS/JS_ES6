@@ -11,4 +11,6 @@ Spread Operator - spread.html(part1)
 ```
 Default Parameter, Arguments, RestParameter - upFunc.html(part2)
 ReferenceType - reference.html(part2)
+Constructor - constructor.html(part2)
+Prototype - prototype.html(part2)
 ```

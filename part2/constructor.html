@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Constructor</title>
+  </head>
+  <body>
+    <script>
+      /* Constructor 용도
+        - object를 마구 복사하고 싶을 때 사용한다.
+        - 비슷한 object 여러개 만들 때 */
+
+      let obj = {
+        name: "kim",
+        age: 20,
+        sayHi: function () {
+          console.log("안녕" + this.name + "입니다");
+        },
+      };
+
+      function Student() {
+        this.name = "Kim";
+        this.age = 15;
+        this.sayHi = function () {
+          console.log("안녕 Function()" + this.name + "이다");
+        };
+      }
+
+      let newObj = new Student();
+
+      function Product(상품명, 가격) {
+        this.name = 상품명;
+        this.price = 가격;
+        this.부가세 = function () {
+          console.log(this.price * 0.1);
+        };
+      }
+
+      let product1 = new Product("shirts", 50000);
+      let product2 = new Product("pants", 60000);
+    </script>
+  </body>
+</html>

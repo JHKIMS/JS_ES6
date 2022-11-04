@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProtoType</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            Prototype - 유전자
+            부모만 가지고 있고, 그걸 참조해서 쓰게 만들고 싶으면 Prototype으로 상속시키면 된다.
+            그게 아니라면 Constructor사용 
+    */
+      function test() {
+        this.name = "Kim";
+        this.age = 15;
+      }
+      test.prototype.gender = "남";
+      test.prototype.mail = "x";
+
+      let sample1 = new test();
+      console.log(sample1.gender);
+      /* 자바스크립트 순서
+            내가(sample) 직접 가지고 있는지 
+            내가 가지고 있지 않으면 부모가 가지고 있는지 체크한다. 
+      */
+
+    //  대상의 부모 유전자를 검사하고 싶다면  _proto_
+    // 배열을 생성할 때 Array라는 부모를 가진다.
+      let arr = [1, 2, 3];
+      arr.prototype;
+      let arr2 = new Array(1, 2, 3);
+    </script>
+  </body>
+</html>
