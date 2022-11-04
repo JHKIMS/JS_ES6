@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body>
+    <script>
+        // 1번째 - 생성자 연습
+        function make(naming, age){
+            this.name=naming;
+            this.age=age;
+        }
+        let one = new make('Kim', 20);
+        let two = new make('Park', 21);
+        let three = new make('Lee', 22);
+        console.log(one);
+        console.log(two);
+        console.log(three);
+        
+        // 2번째 - ArrowFunction을 쓰면 안되는 이유를 생각.
+        function funcTest(naming, ages){
+            this.name = naming;
+            this.age = ages;
+        }
+        funcTest.prototype.something = function(){
+            // 화살표 함수를 사용하면 this값을 제대로 못 받아줘서 제대로 동작안함.
+            console.log('안녕 나는 ' + this.name + '이야');
+        };
+        let funStu = new funcTest('박',20);
+        console.log(funStu);
+        funStu.something();
+        
+        // 3번째 -  배열안에 3이 있으면 제거.
+        let arr = [1, 2, 3];
+        function remove3(paramArr){
+            for(let i=0;i<paramArr.length;i++){
+                if(paramArr[i]===3){
+                    paramArr.splice(i,1);
+                }
+            }
+        }
+        /*  
+            위와 동일한 코드 = 하지만 호출할 때는 Array을 상속받아서 구현된
+            arr.protoRemove3()로 호출해야한다. 
+        */
+        Array.prototype.protoRemove3 = function(){
+            for(let i=0;i<this.length;i++){
+                if(this[i]===3){
+                    this.splice(i,1);
+                }
+            }
+        }
+
+        console.log(arr);
+        remove3(arr); // 밑에 함수 사용할 시 arr.remove3();
+        console.log(arr);
+    </script>
+</body>
+</html>
