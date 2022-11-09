@@ -3,9 +3,9 @@
 ```
 this - this.html(part1)
 ArrowFunction - arrow.html(part1)
-var, let, const - string.html(part1)
+var, let, const + hoisting - varLetConst.html(part1)
 Template literals - string.html(part1)
-Spread Operator - spread.html(part1)
+Spread Operator(전개연산자) - spread.html(part1)
 ```
 ***Ch 02.***
 ```
