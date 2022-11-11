@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get,set,constructor Quiz</title>
+</head>
+
+<body>
+    <script>
+        class quiz {
+            constructor(dog, bg) {
+                this.type = dog;
+                this.color = bg;
+            }
+            ageOne() {
+                if (this instanceof quiz2)
+                    this.age++;
+            }
+        }
+        let dog1 = new quiz('poodle', 'brown');
+
+        class quiz2 extends quiz {
+            constructor(type, color, age) {
+                super(type, color);
+                this.age = age;
+            }
+        }
+
+        let cat1 = new quiz2('동네고양이', 'white', 3);
+
+
+        // Getter, Setter
+
+        class Unit {
+            constructor() {
+                this.offense = 5,
+                    this.defense = 100
+            }
+            battlePoint() {
+                return this.offens + this.defense;
+            }
+            heal(a) {
+                return this.defense + a;
+            }
+        }
+
+        let unit1 = new Unit();
+
+        let data = {
+            odd : [],
+            even : [],
+            dataSet: function(...numbering){
+                numbering.forEach((a) => {
+                    if(a%2 === 1) {this.odd.push(a)}
+                    else {this.even.push(a)}
+                })
+            },
+            getData(){
+                return[...this.odd, ...this.even].sort()
+            }
+        }
+
+    </script>
+</body>
+
+</html>
