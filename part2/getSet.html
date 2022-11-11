@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter, Setter</title>
+</head>
+<body>
+    <script>
+        let person = {
+            name: "Kim",
+            age: 28,
+            get nextAge(){
+                return this.age+1;
+            },
+            set setAge(나이){
+                this.age = parseInt(나이);
+            }
+        }
+
+        person.nextAge();
+        person.setAge(30);
+        person.setAge('50');
+
+        // setAge앞에 set을 붙이면 이렇게 사용가능.
+        person.setAge = 25;
+
+        // nextAge앞에 get을 붙이면 다음과 같이 사용가능.
+        person.nextAge;
+
+        /* 
+            getter함수들은 return이 있어야한다.
+            setter함수들은 파라미터 입력이 권장된다. 
+        */
+
+
+        class toy{
+            constructor(){
+                this.name = 'Park';
+                this.age= 20;
+            }
+            nextToy(){
+                return this.age+2;
+            }
+            setToy(some){
+                this.age = some;
+            }
+        }
+
+        let toy1 = new toy();
+    </script>
+</body>
+</html>

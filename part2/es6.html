@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 상속구현</title>
+</head>
+<body>
+    <script>
+        class some{
+            constructor(){
+                this.name = "Kim";
+                this.sayHi = function(){
+                    console.log('Hi')
+                }
+            }
+            // 여기에 적으면 부모.prototype에 추가됨, 자식 오브젝트에 추가 안됨(사용은 가능)
+            sayHello(){ 
+                console.log('Hi')
+            }
+        }
+
+        let newSome = new some();
+
+        // 두 가지 동일하다.
+        newSome.__proto__;
+        Object.getPrototypeOf(newSome);
+    </script>
+</body>
+</html>

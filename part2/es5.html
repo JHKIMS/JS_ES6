@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Es5_상속문법</title>
+</head>
+<body>
+    <script>
+        let some = {name:'Kim', age: 50};
+        let something = Object.create(some); //prototype을 some으로 해주세요
+        something.age = 20;
+        let sosomething = Object.create(somthing);
+        console.log(something);  
+    </script>
+</body>
+</html>
