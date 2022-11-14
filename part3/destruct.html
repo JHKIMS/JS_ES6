@@ -1,29 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destructuring문법</title>
 </head>
+
 <body>
     <script>
-        let arr = [2,3,4,5];
+        let arr = [2, 3, 4, 5];
 
-        let [a,b,c] = [2,3,4];
+        let [a, b, c] = [2, 3, 4];
         // let a = 2, let b = 3, let c = 4
-        let [d,e,f=10] = [5,6];
+        let [d, e, f = 10] = [5, 6];
         // 10은 Default값이다.
 
-        let { name, age } = { name : 'Kim', age : 30}
+        let { name, age } = { name: 'Kim', age: 30 }
         // name이랑 age라는 변수를 만들어준다.
 
-        let { abc, def=10} = { name : 'Park'}
+        let { abc, def = 10 } = { name: 'Park' }
         // 변수명을 key와 동일하게 써야한다.
         // def는 기본값으로 적용 => 선언을 안함
 
-        let { name : 나이 } = { name : 'Kim'};
+        let { sample: 나이 } = { sample: 'Hoon' };
+        // let 나이 = Hoon
 
+        // Object 생성하는 방법
+        let test1 = 'kim';
+        let test2 = 30;
+        let obj = { name: test1, age: test2 };
+
+        let some1 = 't';
+        let some2 = 2;
+        let someOne = { some1, some2 };
+        // some1에는 some1 변수가 some2에는 some2 변수가 들어간다.
+
+        function test({ nam, ag }) {
+            console.log(nam);
+            console.log(ag);
+        }
+        test({ nam: 'Test중', ag: 25 })
+
+        function twoTest([nam, ag]) {
+            console.log("Array : ", nam);
+            console.log("Array : ", ag);
+        }
+        twoTest([1, 2])
+
+        // Question
+        let quiz = {
+            body: {
+                height: 190,
+                weight: 70
+            },
+            size: ["상의 Large", "바지30"],
+        };
+        let { height, weight, topCloth, bottom }
+            = {
+                height: quiz.body.height,
+                weight: quiz.body.weight,
+                topCloth: quiz.size[0],
+                bottom: quiz.size[1]
+            };
+        console.log(height, weight, topCloth, bottom);
+
+        // Answer
+        let 신체정보 = {
+            body: {
+                height2: 185,
+                weight2: 65
+            },
+            size: ["상의 M", "바지 28인치"],
+        };
+
+        let {
+            body: {
+                height2,
+                weight2
+            },
+            size: [상의, 하의]
+        } = 신체정보;
+        console.log(height2, weight2, 상의, 하의)
     </script>
 </body>
+
 </html>
