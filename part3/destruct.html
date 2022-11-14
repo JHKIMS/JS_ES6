@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring문법</title>
+</head>
+<body>
+    <script>
+        let arr = [2,3,4,5];
+
+        let [a,b,c] = [2,3,4];
+        // let a = 2, let b = 3, let c = 4
+        let [d,e,f=10] = [5,6];
+        // 10은 Default값이다.
+
+        let { name, age } = { name : 'Kim', age : 30}
+        // name이랑 age라는 변수를 만들어준다.
+
+        let { abc, def=10} = { name : 'Park'}
+        // 변수명을 key와 동일하게 써야한다.
+        // def는 기본값으로 적용 => 선언을 안함
+
+        let { name : 나이 } = { name : 'Kim'};
+
+    </script>
+</body>
+</html>
