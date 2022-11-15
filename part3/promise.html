@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise 코드 패턴</title>
+</head>
+
+<body>
+    <img id="testImg" src="https://codingapple1.github.io/kona.jpg">
+    <script>
+        /*
+                Promise : 코드 디자인 패턴
+                Promise의 3가지 상태
+                성공 : resolved, 판정대기 : pending, 실패 : rejected
+         */
+        let promiseTest = new Promise(function (done, fail) {
+            let calc = 1 + 1;
+            done();
+            // done(); or fail();
+            //done이면 then이 실행, fail이면 catch가 실행
+        });
+        // 성공, 실패 판정 기계이다.
+
+        promiseTest.then(function () {
+            console.log("성공");
+        })
+            .catch(function () {
+                console.log("실패");
+            })
+            .finally(function () {
+
+            })
+
+
+
+        let test2 = new Promise(function (done, fail) {
+            setTimeout(function () {
+                done();
+            }, 5000);
+        })
+
+        test2.then(function () {
+            console.log("성공")
+        }).catch(function () {
+
+        })
+
+        // Quiz1.
+        let quiz = new Promise(function (done, fail) {
+            document.querySelector("#testImg").addEventListener('load', function () {
+                done();
+            })
+            document.querySelector("#testImg").addEventListener('error', function () {
+                fail();
+            })
+        })
+
+        quiz.then(function () {
+            console.log("Success!!!")
+        })
+            .catch(function () {
+                console.log("Error!!!")
+            })
+
+
+        // Quiz2.
+        let quiz2 = new Promise(function(done, fail){
+            fetch('https://codingapple1.github.io/hello.txt').then(function(결과){
+                console.log(결과);
+            });
+        })
+
+        quiz2.then(function(결과){
+            console.log(결과);
+        })
+        
+    </script>
+</body>
+
+</html>
