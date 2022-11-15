@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module방식 개발_ES6</title>
+</head>
+<body>
+
+    <script type="module">
+        // import am from './sample.js';
+        // console.log(am);
+
+        import {a, b as sampleTest} from './sample.js';
+        console.log(a, sampleTest);
+        // export로 한 경우 {}에 감싸서 import한다.
+        // export default도 같이 쓰는 경우에는 c,{a,b} 이렇게 해준다.
+        // b의 변수명을 sampleTest로 변경(as)
+        // import * as 전부 : 전부 import해온다.
+        // export dafault 한 것은 항상 따로 가져와야 한다.
+      </script>
+</body>
+</html>
