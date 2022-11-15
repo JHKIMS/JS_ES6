@@ -67,16 +67,25 @@
 
 
         // Quiz2.
-        let quiz2 = new Promise(function(done, fail){
-            fetch('https://codingapple1.github.io/hello.txt').then(function(결과){
-                console.log(결과);
-            });
-        })
+        let quiz2 = fetchFunc('https://codingapple1.github.io/hello.txt');
 
         quiz2.then(function(결과){
             console.log(결과);
+            return fetchFunc('https://codingapple1.github.io/hello2.txt')
+        })
+        .then(function(결과){
+            console.log(결과)
         })
         
+
+        function fetchFunc(URL){
+            return new Promise((성공, 실패)=>{
+                fetch(URL)
+                .then(function(결과){
+                    성공(결과)
+                })
+            })
+        }
     </script>
 </body>
 

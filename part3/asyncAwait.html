@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise -> asyncAwait으로 변경</title>
+</head>
+
+<body>
+    <script>
+        let convertAsync = fetchFunc('https://codingapple1.github.io/hello.txt');
+
+        convertAsync.then(function (결과) {
+            console.log(결과);
+            return fetchFunc('https://codingapple1.github.io/hello2.txt')
+        })
+            .then(function (결과) {
+                console.log(결과)
+            })
+
+
+        function fetchFunc(URL) {
+            return new Promise((성공, 실패) => {
+                fetch(URL)
+                    .then(function (결과) {
+                        성공(결과)
+                    })
+            })
+        }
+    </script>
+</body>
+
+</html>
