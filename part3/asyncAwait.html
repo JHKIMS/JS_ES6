@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <button id="btn">Sample</button>
     <script>
 /*         
 
@@ -32,8 +33,53 @@
             })
         } 
 */
-        // 
+        /* 
+            Async는 성공 판정만 
+            new Promise해서 만들고 하면 너무 귀찮으니깐 앞에 async만 하나 붙여서 사용하자.(함수만 가능, 변수X)
 
+            async function plus(){
+                let 프로미스 = new Promise(function(done, fail){
+                    let 힘든연산 = 1+1;
+                    성공(100);
+                })
+            }
+
+            try{
+                let 결과 = await 프로미스;
+                console.log(결과);
+            } catch{
+                console.log('프로미스 연산이 실패햇구나')
+            }
+
+            let 결과 = await 프로미스;
+            :: await 프로미스 - 프로미스가 해결될 때까지 기다려.
+            console.log(결과);
+
+            프로미스.then(function(){
+                console.log('성공했어요')
+            });
+
+            await은 Promise 실패시 에러나고 멈춤
+            -> try_catch랑 같이 써야한다.
+
+        */
+
+        async function 더하기(){
+            let prom = new Promise(function(done, fail){
+                document.querySelector('#btn').addEventListener('click',function(){
+                    done('성공ㅇㅁㅇ!');
+                })
+            });
+
+            try{
+                let 결과 = await prom;
+                console.log(결과);
+            } catch{
+                console.log('실패!!!');
+            }
+        }
+
+        더하기();
     </script>
 </body>
 
