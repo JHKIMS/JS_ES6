@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MapSet자료형</title>
+</head>
+<body>
+    <script>
+        // Map자료형 : 자료간의 연관성을 표현하기 위해 사용
+        let person = new Map();
+        person.set(100,'Kim');
+        person.set('age',20);
+        person.set(['a','r','r','a','y'],'뭐!');
+
+        person.get('age');
+        person.delete(100);
+        person.size
+
+        let sample = new Map([
+            ['name', 'Hoon'],
+            ['age', 28]
+        ])
+
+        for(let keyName of person.keys()){
+            console.log(keyName);
+        }
+        
+        // Set자료형
+        let attend = ['john', 'tom', 'tom', 'andy'];
+
+        let attend2 = new Set(['john', 'tom', 'tom', 'andy']);
+        // 중복을 허용하지 않는다.
+
+        attend2.add('sally');
+        attend2.delete('sally');
+        attend2.has('tom');
+        attend2.size;
+
+        attend = [...attend2];
+        // Set자료형을 array로 변경(SpreadOperator사용)
+    </script>
+</body>
+</html>

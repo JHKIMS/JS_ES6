@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let sym = Symbol('설명');
+
+        let weight = Symbol('또 다른 몸무게')
+        let person = {name : 'Kim'};
+
+        person.weight = 100;
+        person[weight] = 50;
+        
+
+        for(let key in person) {
+            console.log(person[key]);
+            /* Symbol로 저장한 자료형은 나오지 않는다. : Symbol이 enumerable하지 않음
+               ForIn은 object용이니깐*/
+        }
+        /* Symbol의 특징
+            1. 
+            let a = Symbol('설명1');
+            let b = Symbol('설명2');
+            a === b :false
+            a == b : false
+            
+            2. 전역 Symbol만들기?
+            let a = Symbol.for('전역');
+            let b = Symbol.for('전역2');
+            a === b : true
+
+            3. 반복문에서 출력되지 않기 때문에 기존 코드에 영향을 주지 않는다.
+            */
+    </script>
+</body>
+</html>
