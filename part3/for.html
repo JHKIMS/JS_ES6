@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>for in, for of / enumerable,iterable</title>
 </head>
-<body>
-    
-    <script>
-        let obj = { name : 'Kim', age: 30};
-        
-        // 가장 친숙한 For문 :Array가능
-        for(let i=0;i<3;i++){
 
-        }
+<body>
+
+    <script>
+        let obj = { name: 'Kim', age: 30 };
+
+        // 가장 친숙한 For문 :Array가능
+        for (let i = 0; i < 3; i++) {}
 
         // For_Each : Array전용 - array안에 있던 거 뽑기.
-        [1,2,3].forEach();
+        [1, 2, 3].forEach();
 
         // For_In : Object전용 - object안에 있던 거 뽑기.
-        for(let keyName in obj){ 
-             /* 
-             오브젝트를 돌 때 하나의 key값들이 결국 -keyName이다.   
-             부모의 prototype도 반복해준다. 
-             이 부분을 제외하고 반복문 돌리는 거라면
-             if(obj.hasOwnProperty(key)) 조건을 걸어준다.
-             */
+        for (let keyName in obj) {
+            /* 
+            오브젝트를 돌 때 하나의 key값들이 결국 -keyName이다.   
+            부모의 prototype도 반복해준다. 
+            이 부분을 제외하고 반복문 돌리는 거라면
+            if(obj.hasOwnProperty(key)) 조건을 걸어준다.
+            */
+            if (obj.hasOwnProperty(key)) console.log(obj[key]);
         }
+
         Object.getOwnPropertyDescriptor(obj, 'name') // 오브젝트.name의 숨겨진 정보 출력
 
-
+        let arr = [2,3,4,5]
         // For_Of : Iterable전용 Array, 문자, arguments, NodeList, Map, Set
-        for(let key of obj){ 
-
+        for (let some of arr) {
+            console.log(some);
+            // 출력 2 3 4 5 
         }
-
-         /*
-            enumerable : 늘어놓을 수 있는? 셀 수 있는지 여부
-            iterable : 반복 가능한 객체
-         */
+        for (let some of 'abcdefghi') {
+            console.log(some);
+            // 출력 a b c d e f g h i 
+        }
+        /*
+           enumerable : 늘어놓을 수 있는? 셀 수 있는지 여부
+           iterable : 반복 가능한 객체(프로토타입으로 @iterator 메소드를 가지고 있다.)
+        */
     </script>
 </body>
+
 </html>
