@@ -26,4 +26,7 @@ Stack,Queue - stackQueue.html(part3)
 Promise - promise.html(part3)
 Async,Await - asyncAwait.html(part3)
 for in/ for of/ enumerable, iterable - for.html(part3)
+symbol - symbol.html(part3)
+MapSet - mapSet.html(part3)
+CustomHtml - customHtml.html(part3)
 ```
