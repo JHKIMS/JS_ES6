@@ -7,9 +7,27 @@
     <title>Custom.Html</title>
 </head>
 <body>
-    <custom-input></custom-input>
+    <custom-input test="765" ></custom-input>
+    <custom-input change="lol" ></custom-input>
     <script>
-        // 함수와 개념이 비슷하다.
+        // 함수와 개념이 비슷하다. :: 다른 페이지에서 재활용 가능하다.
+        class htmlBlock extends HTMLElement {
+            connectedCallback(){
+                let some = this.getAttribute('test');
+                this.innerHTML= `<label>${some}축약중이다</label><input>`
+                // 여기서의 this는 생성될 custom-input의 요소이다.
+            }
+            // react,vue 같은 곳에서 props 같은 부분들이 변경되면 재렌더링 시켜달라고함. 그것과 똑같은 기능이다.
+            static get observedAttributes(){
+                return ['test']
+            }attributeChangedCallback(){
+                console.log(this.getAttribute('test'));
+            }
+        }
+
+        customElements.define('custom-input', htmlBlock);
+
+        // => 결국 이런 작업을 잘하는 게 vue,react와 같은 라이브러리,프레임워크이다.
     </script>
 </body>
 </html>
