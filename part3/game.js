@@ -47,12 +47,31 @@ function move() {
   }
   // dino.x++; //캐릭터 움직이기
 
-  cactusMany.forEach((a)=>{
+  cactusMany.forEach((a, i, o) => {
+    // x좌표가 0미만이면 제거
+    if (a.x < 0) o.splice(i, 1);
+
     a.x--;
     a.draw();
   })
 
+  // 점프하기
+  if(switchBtn == true) {
+    dino.y--;
+    timer++;
+  }
+  if(timer>100) switchBtn=false;
+  
+
   dino.draw();
 }
+
+//  점프하기
+let switchBtn = false;
+document.addEventListener("keydown", function (e) {
+  if (e.code === "Space") {
+    switchBtn = true;
+  }
+});
 
 move();
