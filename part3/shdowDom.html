@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShadowDom+Template => Html 완벽한 Module화</title>
+</head>
+
+<body>
+    <!-- <div id="mordor"></div> -->
+
+    <label>SampleTest</label>
+    <custom-module></custom-module>
+
+    <!-- Html의 임시보관함이다 template -->
+    <template id="template1">
+        <label>이메일 입력</label>
+        <style>
+            label { color: dodgerblue}
+        </style>
+    </template>
+
+    <script>
+        /* document.querySelector('#mordor').attachShadowDom({ mode: 'open' });
+        // shadowRoot 열어주는 역할
+
+        document.querySelector('#mordor').shadowRoot.innerHTML = '<p>숨겨져있는 태그이다.</p>' */
+
+        class moduleBlock extends HTMLElement {
+            connectedCallback() {
+                this.attachShadow({ mode: 'open' });
+                this.shadowRoot.append(template1.content.cloneNode(true))
+
+                let el = this.shadowRoot.querySelector('label');
+                el.addEventListener('click', function(){
+                    console.log('클릭함')
+                })
+            }
+        }
+
+        customElements.define("custom-module", moduleBlock);
+    </script>
+</body>
+
+</html>
