@@ -7,6 +7,9 @@ canvas.height = window.innerHeight - 100;
 /* ctx.fillStyle = 'dodgerblue';
 ctx.fillRect(10, 10, 100, 100); */
 
+let img2 = new Image();
+img2.src='dinosaur.png';
+
 let dino = {
   x: 10,
   y: 200,
@@ -14,9 +17,13 @@ let dino = {
   height: 50,
   draw() {
     ctx.fillStyle = "blue";
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    // ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(img2, this.x, this.y);
   },
 };
+
+let img1 = new Image();
+img1.src='cactus.png';
 
 class Cactus {
   constructor() {
@@ -27,20 +34,25 @@ class Cactus {
   }
   draw() {
     ctx.fillStyle = "green";
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    // ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(img1, this.x, this.y);
   }
 }
 
 let timer = 0;
 let cactusMany = [];
+let jumpTimer = 0;
+let animation;
+let switchBtn = false;
+
 
 function move() {
-  requestAnimationFrame(move);
+  animation = requestAnimationFrame(move);
   timer++;
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  if (timer % 120 === 0) {
+  if (timer % 200 === 0) {
     let cactus = new Cactus();
     cactusMany.push(cactus);
     cactus.draw();
@@ -52,26 +64,50 @@ function move() {
     if (a.x < 0) o.splice(i, 1);
 
     a.x--;
+
+    conflict(dino, a);
+
     a.draw();
   })
 
   // 점프하기
   if(switchBtn == true) {
     dino.y--;
-    timer++;
+    jumpTimer++;
   }
-  if(timer>100) switchBtn=false;
-  
+  if(switchBtn == false){
+    if(dino.y < 200){
+        dino.y++;
+    }
+  }
+  if(jumpTimer>100) {
+    switchBtn=false;
+    jumpTimer=0;
+  }
 
   dino.draw();
 }
 
+
+move();
+
+// 충돌 체크하기
+function conflict(dino, cactus){
+  let xWidth = cactus.x - (dino.x+dino.width);
+  let yHeight = cactus.y - (dino.y+dino.height);
+  if(xWidth<0 && yHeight<0){
+    ctx.clearRect(0,0, canvas.width, canvas.height);
+    cancelAnimationFrame(animation)
+  }
+}
+
 //  점프하기
-let switchBtn = false;
 document.addEventListener("keydown", function (e) {
   if (e.code === "Space") {
     switchBtn = true;
   }
 });
 
-move();
+
+
+
