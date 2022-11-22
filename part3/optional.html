@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optional Chaining</title>
+</head>
+<body>
+    <script>
+        // ?. ?? : 안전하게 에러없이 출력
+        let user = {
+            name: 'kim',
+            age: 20,
+            address: {Korea: "Seoul"}
+        }
+
+        console.log(user.address.Korea);
+
+        console.log(user?.age);
+        console.log(user?.height); // 값이 없으면 undefined을 출력시켜준다. 에러안뜸
+        console.log(user.weight ?? '이거보여줘'); // 왼쪽이 undefined, null이면 오른쪽을 출력
+        /*
+            Optional Chaining 사용  
+        */
+    </script>
+</body>
+</html>

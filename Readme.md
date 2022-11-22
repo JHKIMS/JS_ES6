@@ -29,4 +29,6 @@ for in/ for of/ enumerable, iterable - for.html(part3)
 symbol - symbol.html(part3)
 MapSet - mapSet.html(part3)
 CustomHtml - customHtml.html(part3)
+JumpGame - game.html, game.js(part3)
+?. / ?? Optional Chaining - optional.html(part3)
 ```
